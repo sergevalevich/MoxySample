@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.example.sergey_valevich.moxysample"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    final supportLibsVer = '25.3.1'
+    final daggerVer = '2.10-rc2'
+    final javaxVer = '10.0-b28'
+    final rxJavaVer = '1.1.5'
+    final rxAndroidVer = '1.2.0'
+    final rxBindingsVer = '1.0.0'
+    final rxJavaProguard = "1.1.5.0"
+    final butterKnifeVer = '8.0.1'
+    final timberVer = '4.1.2'
+    final moxyVer = '1.5.1'
+    final leakCanaryVer = '1.4-beta2'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$supportLibsVer"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.jakewharton:butterknife:$butterKnifeVer"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVer"
+    compile "com.google.dagger:dagger:$daggerVer"
+    provided "org.glassfish:javax.annotation:$javaxVer"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVer"
+    compile "com.jakewharton.timber:timber:$timberVer"
+    compile "io.reactivex:rxjava:$rxJavaVer"
+    compile "io.reactivex:rxandroid:$rxAndroidVer"
+    compile "com.jakewharton.rxbinding:rxbinding-appcompat-v7:$rxBindingsVer"
+    compile "com.artemzin.rxjava:proguard-rules:$rxJavaProguard"
+    compile "com.arello-mobile:moxy:$moxyVer"
+    annotationProcessor "com.arello-mobile:moxy-compiler:$moxyVer"
+    compile "com.arello-mobile:moxy-app-compat:$moxyVer"
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanaryVer"
+    testCompile 'junit:junit:4.12'
+}
