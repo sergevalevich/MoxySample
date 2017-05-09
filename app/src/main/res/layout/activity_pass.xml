@@ -9,7 +9,7 @@
     tools:context="com.example.sergey_valevich.moxysample.view.impl.NameValidationActivity">
 
     <EditText
-        android:id="@+id/nameField"
+        android:id="@+id/passField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
